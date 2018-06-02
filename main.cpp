@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include "Calculadora.h"
+#include "TipoOperacion.h"
 
 using namespace std;
 
@@ -18,6 +19,10 @@ int leerOpcion();
 bool evaluarOpcion(int);
 
 double leerOperando();
+
+void realizarOperacion(TipoOperacion);
+
+void mostrarHistorial();
 
 void borrarPantalla();
 
@@ -68,7 +73,6 @@ double leerOperando() {
     string entrada;
     double operando;
 
-    cout << "Operando: ";
     cin >> entrada;
 
     try {
@@ -82,50 +86,22 @@ double leerOperando() {
 
 bool evaluarOpcion(int opcion) {
     bool salir = false;
-    double operando1, operando2;
-
-    if (opcion == 7) {
-        operando1 = leerOperando();
-    } else {
-        operando1 = leerOperando();
-        operando2 = leerOperando();
-    }
 
     switch (opcion) {
         case 0:
             salir = true;
             break;
         case 1:
-            cout << "Resultado: " << Calculadora::sumar(operando1, operando2)
-                 << endl;
-            break;
         case 2:
-            cout << "Resultado: " << Calculadora::restar(operando1, operando2)
-                 << endl;
-            break;
         case 3:
-            cout << "Resultado: "
-                 << Calculadora::multiplicar(operando1, operando2) << endl;
-            break;
         case 4:
-            cout << "Resultado: " << Calculadora::dividir(operando1, operando2)
-                 << endl;
-            break;
         case 5:
-            cout << "Resultado: "
-                 << Calculadora::calcularModulo(operando1, operando2) << endl;
-            break;
         case 6:
-            cout << "Resultado: "
-                 << Calculadora::calcularPotencia(operando1, operando2) << endl;
-            break;
         case 7:
-            cout << "Resultado: " << Calculadora::calcularRaiz(operando1)
-                 << endl;
+            realizarOperacion(TipoOperacion(opcion));
             break;
         case 8:
-            cout << "Historial de operaciones:" << endl
-                 << Calculadora::obtenerHistorial() << endl;
+            mostrarHistorial();
             break;
         case 9:
             borrarPantalla();
@@ -136,6 +112,28 @@ bool evaluarOpcion(int opcion) {
     }
 
     return salir;
+}
+
+void realizarOperacion(TipoOperacion tipoOp) {
+    double op1, op2;
+
+    if (tipoOp == tipoRaiz) {
+        cout << "Operando: ";
+        op1 = leerOperando();
+        op2 = 0.0;
+    } else {
+        cout << "Primer operando: ";
+        op1 = leerOperando();
+        cout << "Segundo operando: ";
+        op2 = leerOperando();
+    }
+
+    cout << "Resultado: " << Calculadora::evaluar(tipoOp, op1, op2) << endl;
+}
+
+void mostrarHistorial() {
+    cout << "Las últimas 3 operaciones realizadas son: " << endl
+         << Calculadora::obtenerHistorial() << endl;
 }
 
 void borrarPantalla() {}

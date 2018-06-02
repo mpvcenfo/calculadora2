@@ -33,3 +33,7 @@ Operacion::Operacion(double op1, double op2) {
 }
 
 Operacion::~Operacion() {}
+
+void Operacion::evaluar() {}
+
+string Operacion::serializar() { return to_string(resultado); }

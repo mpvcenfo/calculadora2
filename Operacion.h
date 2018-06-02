@@ -25,8 +25,8 @@ class Operacion {
     Operacion(double);
     Operacion(double, double);
     ~Operacion();
-    virtual void evaluar() = 0;
-    virtual string obtener() = 0;
+    void evaluar();
+    string serializar();
 };
 
 #endif  // OPERACION_H

@@ -19,6 +19,7 @@
 #include "Raiz.h"
 #include "Resta.h"
 #include "Suma.h"
+#include "TipoOperacion.h"
 
 using namespace std;
 
@@ -29,13 +30,7 @@ class Calculadora {
    public:
     static void iniciar();
     static void terminar();
-    static string sumar(double, double);
-    static string restar(double, double);
-    static string multiplicar(double, double);
-    static string dividir(double, double);
-    static string calcularModulo(double, double);
-    static string calcularPotencia(double, double);
-    static string calcularRaiz(double);
+    static string evaluar(TipoOperacion, double, double);
     static string obtenerHistorial();
 };
 

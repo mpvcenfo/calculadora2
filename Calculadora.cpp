@@ -12,32 +12,39 @@ void Calculadora::iniciar() { historial = stack<Operacion>(); }
 
 void Calculadora::terminar() {}
 
-string Calculadora::sumar(double operador1, double operador2) {
-    Suma suma = Suma(operador1, operador2);
+string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
+    Operacion op;
 
-    suma.evaluar();
+    switch (tipoOp) {
+        case tipoSuma:
+            op = Suma(op1, op2);
+            break;
+        case tipoResta:
+            op = Resta(op1, op2);
+            break;
+        case tipoMultiplicacion:
+            op = Multiplicacion(op1, op2);
+            break;
+        case tipoDivision:
+            op = Division(op1, op2);
+            break;
+        case tipoModulo:
+            op = Modulo(op1, op2);
+            break;
+        case tipoPotencia:
+            op = Potencia(op1, op2);
+            break;
+        case tipoRaiz:
+            op = Raiz(op1, op2);
+            break;
+        default:
+            op = Operacion(op1, op2);
+            break;
+    }
 
-    historial.push(suma);
+    op.evaluar();
 
-    return suma.obtener();
-}
+    historial.push(op);
 
-string Calculadora::restar(double operador1, double operador2) {
-    Resta resta = Resta(operador1, operador2);
-
-    resta.evaluar();
-
-    historial.push(resta);
-
-    return resta.obtener();
-}
-
-string Calculadora::multiplicar(double operador1, double operador2) {
-    Multiplicacion multiplicacion = Multiplicacion(operador1, operador2);
-
-    multiplicacion.evaluar();
-
-    historial.push(multiplicacion);
-
-    return multiplicacion.obtener();
+    return op.serializar();
 }
