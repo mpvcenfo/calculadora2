@@ -9,8 +9,8 @@
 #ifndef CALCULADORA_H
 #define CALCULADORA_H
 
-#include <stack>
 #include <string>
+#include <vector>
 #include "Division.h"
 #include "Modulo.h"
 #include "Multiplicacion.h"
@@ -25,7 +25,7 @@ using namespace std;
 
 class Calculadora {
    private:
-    static stack<Operacion> historial;
+    static vector<Operacion> historial;
 
    public:
     static void iniciar();

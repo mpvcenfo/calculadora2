@@ -8,12 +8,13 @@
 
 #include "Calculadora.h"
 
-void Calculadora::iniciar() { historial = stack<Operacion>(); }
+void Calculadora::iniciar() {}
 
 void Calculadora::terminar() {}
 
 string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
     Operacion op;
+    string mensajeRespuesta;
 
     switch (tipoOp) {
         case tipoSuma:
@@ -44,7 +45,19 @@ string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
 
     op.evaluar();
 
-    historial.push(op);
+    mensajeRespuesta = op.serializar();
 
-    return op.serializar();
+    historial.push_back(op);
+
+    return mensajeRespuesta;
+}
+
+string Calculadora::obtenerHistorial() {
+    string listadoHistorial = "";
+
+    for (Operacion op : historial) {
+        listadoHistorial += op.serializar() + '\n';
+    }
+
+    return listadoHistorial;
 }

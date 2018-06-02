@@ -6,6 +6,9 @@
 // Fecha de creación: 26-05-2018
 // Fecha de modificación: 02-06-2018
 
+#ifndef TIPO_OPERACION_H
+#define TIPO_OPERACION_H
+
 enum TipoOperacion {
     tipoSuma,
     tipoResta,
@@ -15,3 +18,5 @@ enum TipoOperacion {
     tipoPotencia,
     tipoRaiz
 };
+
+#endif  // TIPO_OPERACION_H

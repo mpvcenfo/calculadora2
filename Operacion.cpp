@@ -36,4 +36,4 @@ Operacion::~Operacion() {}
 
 void Operacion::evaluar() {}
 
-string Operacion::serializar() { return to_string(resultado); }
+string Operacion::serializar() { return ""; }

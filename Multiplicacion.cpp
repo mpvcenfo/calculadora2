@@ -10,4 +10,7 @@
 
 void Multiplicacion::evaluar() { resultado = operando1 * operando2; }
 
-string Multiplicacion::serializar() { return to_string(resultado); }
+string Multiplicacion::serializar() {
+    return to_string(operando1) + " * " + to_string(operando2) + " = " +
+           to_string(resultado);
+}

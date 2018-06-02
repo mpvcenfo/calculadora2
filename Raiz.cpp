@@ -22,6 +22,7 @@ string Raiz::serializar() {
     if (hayError) {
         return mensajeError;
     } else {
-        return to_string(resultado);
+        return "La raíz cuadrada de " + to_string(operando1) + " es " +
+               to_string(resultado);
     }
 }

@@ -10,4 +10,7 @@
 
 void Suma::evaluar() { resultado = operando1 + operando2; }
 
-string Suma::serializar() { return to_string(resultado); }
+string Suma::serializar() {
+    return to_string(operando1) + " + " + to_string(operando2) + " = " +
+           to_string(resultado);
+}

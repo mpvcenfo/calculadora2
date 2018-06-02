@@ -10,4 +10,7 @@
 
 void Resta::evaluar() { resultado = operando1 - operando2; }
 
-string Resta::serializar() { return to_string(resultado); }
+string Resta::serializar() {
+    return to_string(operando1) + " - " + to_string(operando2) + " = " +
+           to_string(resultado);
+}

@@ -21,6 +21,7 @@ string Modulo::serializar() {
     if (hayError) {
         return mensajeError;
     } else {
-        return to_string(resultado);
+        return to_string(operando1) + " \% " + to_string(operando2) + " = " +
+               to_string(resultado);
     }
 }
