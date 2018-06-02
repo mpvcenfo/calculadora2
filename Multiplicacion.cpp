@@ -8,14 +8,6 @@
 
 #include "Multiplicacion.h"
 
-Multiplicacion::Multiplicacion() { Operacion::Operacion(); }
-
-Multiplicacion::Multiplicacion(double op1, double op2) {
-    Operacion::Operacion(op1, op2);
-}
-
-Multiplicacion::~Multiplicacion() { Operacion::~Operacion(); }
-
 void Multiplicacion::evaluar() { resultado = operando1 * operando2; }
 
 string Multiplicacion::serializar() { return to_string(resultado); }

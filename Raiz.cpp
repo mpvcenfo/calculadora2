@@ -1,6 +1,6 @@
 // Universidad Cenfotec
 // Estructura de datos 1 - 2018-01
-// Nombre de archivo: Raiz.h
+// Nombre de archivo: Raiz.cpp
 // Autor: Marco Piedra Venegas (mpiedrav@ucenfotec.ac.cr)
 // TAD calculadora - Tarea 2
 // Fecha de creación: 26-05-2018
@@ -8,12 +8,6 @@
 
 #include "Raiz.h"
 #include <cmath>
-
-Raiz::Raiz() { Operacion::Operacion(); }
-
-Raiz::Raiz(double op1) { Operacion::Operacion(op1); }
-
-Raiz::~Raiz() { Operacion::~Operacion(); }
 
 void Raiz::evaluar() {
     if (operando1 < 0.0) {

@@ -8,12 +8,6 @@
 
 #include "Resta.h"
 
-Resta::Resta() { Operacion::Operacion(); }
-
-Resta::Resta(double op1, double op2) { Operacion::Operacion(op1, op2); }
-
-Resta::~Resta() { Operacion::~Operacion(); }
-
 void Resta::evaluar() { resultado = operando1 - operando2; }
 
 string Resta::serializar() { return to_string(resultado); }

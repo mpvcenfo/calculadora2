@@ -9,19 +9,17 @@
 #ifndef POTENCIA_H
 #define POTENCIA_H
 
-#include <string>
 #include <cmath>
+#include <string>
 #include "Operacion.h"
 
 using namespace std;
 
 class Potencia : public Operacion {
    public:
-    Potencia();
-    Potencia(double, double);
-    ~Potencia();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };
 
-#endif //POTENCIA_H
+#endif  // POTENCIA_H

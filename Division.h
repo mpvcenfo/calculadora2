@@ -16,9 +16,7 @@ using namespace std;
 
 class Division : public Operacion {
    public:
-    Division();
-    Division(double, double);
-    ~Division();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };

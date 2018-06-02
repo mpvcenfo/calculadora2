@@ -16,9 +16,7 @@ using namespace std;
 
 class Multiplicacion : public Operacion {
    public:
-    Multiplicacion();
-    Multiplicacion(double, double);
-    ~Multiplicacion();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };

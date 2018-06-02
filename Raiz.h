@@ -16,9 +16,7 @@ using namespace std;
 
 class Raiz : public Operacion {
    public:
-    Raiz();
-    Raiz(double);
-    ~Raiz();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };

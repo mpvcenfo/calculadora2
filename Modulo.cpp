@@ -8,12 +8,6 @@
 
 #include "Modulo.h"
 
-Modulo::Modulo() { Operacion::Operacion(); }
-
-Modulo::Modulo(double op1, double op2) { Operacion::Operacion(op1, op2); }
-
-Modulo::~Modulo() { Operacion::~Operacion(); }
-
 void Modulo::evaluar() {
     if (operando2 == 0.0) {
         hayError = true;

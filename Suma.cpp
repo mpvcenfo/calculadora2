@@ -8,12 +8,6 @@
 
 #include "Suma.h"
 
-Suma::Suma() { Operacion::Operacion(); }
-
-Suma::Suma(double op1, double op2) { Operacion::Operacion(op1, op2); }
-
-Suma::~Suma() { Operacion::~Operacion(); }
-
 void Suma::evaluar() { resultado = operando1 + operando2; }
 
 string Suma::serializar() { return to_string(resultado); }

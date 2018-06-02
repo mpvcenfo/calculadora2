@@ -16,9 +16,7 @@ using namespace std;
 
 class Suma : public Operacion {
    public:
-    Suma();
-    Suma(double, double);
-    ~Suma();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };

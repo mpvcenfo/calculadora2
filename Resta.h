@@ -16,9 +16,7 @@ using namespace std;
 
 class Resta : public Operacion {
    public:
-    Resta();
-    Resta(double, double);
-    ~Resta();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };

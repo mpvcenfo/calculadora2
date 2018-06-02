@@ -9,24 +9,24 @@
 #ifndef CALCULADORA_H
 #define CALCULADORA_H
 
-#include <string>
 #include <stack>
-#include "Operacion.h"
-#include "Suma.h"
-#include "Resta.h"
-#include "Multiplicacion.h"
+#include <string>
 #include "Division.h"
 #include "Modulo.h"
+#include "Multiplicacion.h"
+#include "Operacion.h"
 #include "Potencia.h"
 #include "Raiz.h"
+#include "Resta.h"
+#include "Suma.h"
 
 using namespace std;
 
 class Calculadora {
-private:
+   private:
     static stack<Operacion> historial;
 
-public:
+   public:
     static void iniciar();
     static void terminar();
     static string sumar(double, double);
@@ -39,5 +39,4 @@ public:
     static string obtenerHistorial();
 };
 
-
-#endif //CALCULADORA_H
+#endif  // CALCULADORA_H

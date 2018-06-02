@@ -1,27 +1,26 @@
-//
-// Created by Marco Piedra Venegas on 6/2/18.
-//
+// Universidad Cenfotec
+// Estructura de datos 1 - 2018-01
+// Nombre de archivo: Potencia.cpp
+// Autor: Marco Piedra Venegas (mpiedrav@ucenfotec.ac.cr)
+// TAD calculadora - Tarea 2
+// Fecha de creación: 26-05-2018
+// Fecha de modificación: 02-06-2018
 
 #include "Potencia.h"
 
-Potencia::Potencia() {
-    Operacion::Operacion();
-}
-
-Potencia::Potencia(double op1, double op2) {
-        Operacion::Operacion(op1, op2);
-}
-
-Potencia::~Potencia() {
-    Operacion::~Operacion();
-}
-
 void Potencia::evaluar() {
-    if(operando1 == 0.0 && operando2 == 0.0) {
+    if (operando1 == 0.0 && operando2 == 0.0) {
         hayError = true;
         mensajeError = "Error: 0 elevado a la 0 no está definido";
-    }
-    else {
+    } else {
         resultado = pow(operando1, operando2);
+    }
+}
+
+string Potencia::serializar() {
+    if (hayError) {
+        return mensajeError;
+    } else {
+        return to_string(resultado);
     }
 }

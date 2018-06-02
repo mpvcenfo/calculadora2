@@ -16,9 +16,7 @@ using namespace std;
 
 class Modulo : public Operacion {
    public:
-    Modulo();
-    Modulo(double, double);
-    ~Modulo();
+    using Operacion::Operacion;
     void evaluar();
     string serializar();
 };
