@@ -6,22 +6,25 @@
 // Fecha de creación: 26-05-2018
 // Fecha de modificación: 02-06-2018
 
-#ifndef CALCULADORA_OPERACION_H
-#define CALCULADORA_OPERACION_H
+#ifndef OPERACION_H
+#define OPERACION_H
 
 #include <string>
 
 using namespace std;
 
 class Operacion {
-private:
+   protected:
     double operando1, operando2;
     double resultado;
-public:
+    bool hayError;
+
+   public:
+    Operacion();
     Operacion(double, double);
     ~Operacion();
-    virtual string evaluar();
+    virtual void evaluar();
+    virtual string obtener();
 };
 
-
-#endif //CALCULADORA_OPERACION_H
+#endif  // OPERACION_H

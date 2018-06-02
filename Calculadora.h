@@ -6,19 +6,25 @@
 // Fecha de creación: 26-05-2018
 // Fecha de modificación: 02-06-2018
 
-#ifndef CALCULADORA_CALCULADORA_H
-#define CALCULADORA_CALCULADORA_H
+#ifndef CALCULADORA_H
+#define CALCULADORA_H
 
 #include <string>
-#include <vector>
+#include <stack>
 #include "Operacion.h"
+#include "Suma.h"
+#include "Resta.h"
+#include "Multiplicacion.h"
+#include "Division.h"
+#include "Modulo.h"
+#include "Potencia.h"
+#include "Raiz.h"
 
 using namespace std;
 
 class Calculadora {
 private:
-    static Operacion* operacionActual;
-    static vector<Operacion>* historial;
+    static stack<Operacion> historial;
 
 public:
     static void iniciar();
@@ -34,4 +40,4 @@ public:
 };
 
 
-#endif //CALCULADORA_CALCULADORA_H
+#endif //CALCULADORA_H

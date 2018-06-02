@@ -1,14 +1,26 @@
-//
-// Created by Marco Piedra Venegas on 6/2/18.
-//
+// Universidad Cenfotec
+// Estructura de datos 1 - 2018-01
+// Nombre de archivo: Resta.h
+// Autor: Marco Piedra Venegas (mpiedrav@ucenfotec.ac.cr)
+// TAD calculadora - Tarea 2
+// Fecha de creación: 26-05-2018
+// Fecha de modificación: 02-06-2018
 
-#ifndef CALCULADORA_RESTA_H
-#define CALCULADORA_RESTA_H
+#ifndef RESTA_H
+#define RESTA_H
 
+#include <string>
+#include "Operacion.h"
 
-class Resta {
+using namespace std;
 
+class Resta : public Operacion {
+   public:
+    Resta();
+    Resta(double, double);
+    ~Resta();
+    void evaluar();
+    string serializar();
 };
 
-
-#endif //CALCULADORA_RESTA_H
+#endif  // RESTA_H

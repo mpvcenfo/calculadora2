@@ -8,11 +8,18 @@
 
 #include "Operacion.h"
 
+Operacion::Operacion() {
+    operando1 = 0.0;
+    operando2 = 0.0;
+    resultado = 0.0;
+    hayError = false;
+}
+
 Operacion::Operacion(double op1, double op2) {
     operando1 = op1;
     operando2 = op2;
+    resultado = 0.0;
+    hayError = false;
 }
 
-Operacion::~Operacion() {
-
-}
+Operacion::~Operacion() {}

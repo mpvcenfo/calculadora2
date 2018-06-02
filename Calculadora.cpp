@@ -8,22 +8,26 @@
 
 #include "Calculadora.h"
 
-void Calculadora::iniciar() {
-    if(historial == nullptr) {
-        historial = new vector<Operacion>();
-    }
+void Calculadora::iniciar() { historial = stack<Operacion>(); }
+
+void Calculadora::terminar() {}
+
+string Calculadora::sumar(double operador1, double operador2) {
+    Suma suma = Suma(operador1, operador2);
+
+    suma.evaluar();
+
+    historial.push(suma);
+
+    return suma.obtener();
 }
 
-void Calculadora::terminar() {
-    delete operacionActual;
-    delete historial;
+string Calculadora::restar(double operador1, double operador2) {
+    Resta resta = Resta(operador1, operador2);
+
+    resta.evaluar();
+
+    historial.push(resta);
+
+    return resta.obtener();
 }
-
-static string Calculadora::sumar(double operador1, double operador2) {
-    Operacion* operacion;
-
-    operacionActual = new Suma(operador1, operador2);
-
-    return operadorActual.evaluar();
-}
-

@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Calculadora.h"
 
 using namespace std;
@@ -16,9 +17,7 @@ int leerOpcion();
 
 bool evaluarOpcion(int);
 
-double leerOperando(int);
-
-void evaluarOperacion(int);
+double leerOperando();
 
 void borrarPantalla();
 
@@ -58,44 +57,75 @@ int leerOpcion() {
 
     try {
         opcion = stoi(entrada);
-    }
-    catch (const invalid_argument &argumento) {
+    } catch (const invalid_argument &argumento) {
         cout << "Entrada inválida: " << argumento.what() << endl;
     }
 
     return opcion;
 }
 
+double leerOperando() {
+    string entrada;
+    double operando;
+
+    cout << "Operando: ";
+    cin >> entrada;
+
+    try {
+        operando = stod(entrada);
+    } catch (invalid_argument &argumento) {
+        cout << "Operando inválido: " << argumento.what() << endl;
+    }
+
+    return operando;
+}
+
 bool evaluarOpcion(int opcion) {
     bool salir = false;
+    double operando1, operando2;
+
+    if (opcion == 7) {
+        operando1 = leerOperando();
+    } else {
+        operando1 = leerOperando();
+        operando2 = leerOperando();
+    }
 
     switch (opcion) {
         case 0:
             salir = true;
             break;
         case 1:
-            sumar();
+            cout << "Resultado: " << Calculadora::sumar(operando1, operando2)
+                 << endl;
             break;
         case 2:
-            restar();
+            cout << "Resultado: " << Calculadora::restar(operando1, operando2)
+                 << endl;
             break;
         case 3:
-            multiplicar();
+            cout << "Resultado: "
+                 << Calculadora::multiplicar(operando1, operando2) << endl;
             break;
         case 4:
-            dividir();
+            cout << "Resultado: " << Calculadora::dividir(operando1, operando2)
+                 << endl;
             break;
         case 5:
-            calcularModulo();
+            cout << "Resultado: "
+                 << Calculadora::calcularModulo(operando1, operando2) << endl;
             break;
         case 6:
-            calcularPotencia();
+            cout << "Resultado: "
+                 << Calculadora::calcularPotencia(operando1, operando2) << endl;
             break;
         case 7:
-            calcularRaiz();
+            cout << "Resultado: " << Calculadora::calcularRaiz(operando1)
+                 << endl;
             break;
         case 8:
-            mostrarHistorial();
+            cout << "Historial de operaciones:" << endl
+                 << Calculadora::obtenerHistorial() << endl;
             break;
         case 9:
             borrarPantalla();
@@ -108,42 +138,4 @@ bool evaluarOpcion(int opcion) {
     return salir;
 }
 
-void sumar() {
-    string entrada;
-    double operando1, operando2;
-
-    operando1 = leerOperando(1);
-    operando2 = leerOperando(2);
-    cout << "Resultado: " << Calculadora::sumar(operando1, operando1) << endl;
-}
-
-double leerOperando(int numeroOperando) {
-    string entrada = "";
-    double operando = 0.0;
-
-    switch(numeroOperando){
-        case 1:
-            cout << "Primer operando: ";
-            break;
-        case 2:
-            cout << "Segundo operando: ";
-            break;
-        default:
-            cout << "Operando: ";
-            break;
-    }
-    cin >> entrada;
-
-    try {
-        operando = stod(entrada);
-    }
-    catch (invalid_argument &argumento) {
-        cout << "Operando inválido: " << argumento.what() << endl;
-    }
-
-    return operando;
-}
-
-void borrarPantalla() {
-
-}
+void borrarPantalla() {}
