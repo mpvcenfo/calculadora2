@@ -13,6 +13,15 @@ Operacion::Operacion() {
     operando2 = 0.0;
     resultado = 0.0;
     hayError = false;
+    mensajeError = "";
+}
+
+Operacion::Operacion(double op1) {
+    operando1 = op1;
+    operando2 = 0.0;
+    resultado = 0.0;
+    hayError = false;
+    mensajeError = "";
 }
 
 Operacion::Operacion(double op1, double op2) {
@@ -20,6 +29,7 @@ Operacion::Operacion(double op1, double op2) {
     operando2 = op2;
     resultado = 0.0;
     hayError = false;
+    mensajeError = "";
 }
 
 Operacion::~Operacion() {}

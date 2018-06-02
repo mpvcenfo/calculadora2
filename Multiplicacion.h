@@ -1,14 +1,26 @@
-//
-// Created by Marco Piedra Venegas on 6/2/18.
-//
+// Universidad Cenfotec
+// Estructura de datos 1 - 2018-01
+// Nombre de archivo: Multiplicacion.h
+// Autor: Marco Piedra Venegas (mpiedrav@ucenfotec.ac.cr)
+// TAD calculadora - Tarea 2
+// Fecha de creación: 26-05-2018
+// Fecha de modificación: 02-06-2018
 
-#ifndef CALCULADORA_MULTIPLICACION_H
-#define CALCULADORA_MULTIPLICACION_H
+#ifndef MULTIPLICACION_H
+#define MULTIPLICACION_H
 
+#include <string>
+#include "Operacion.h"
 
-class Multiplicacion {
+using namespace std;
 
+class Multiplicacion : public Operacion {
+   public:
+    Multiplicacion();
+    Multiplicacion(double, double);
+    ~Multiplicacion();
+    void evaluar();
+    string serializar();
 };
 
-
-#endif //CALCULADORA_MULTIPLICACION_H
+#endif  // MULTIPLICACION_H

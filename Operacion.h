@@ -18,9 +18,11 @@ class Operacion {
     double operando1, operando2;
     double resultado;
     bool hayError;
+    string mensajeError;
 
    public:
     Operacion();
+    Operacion(double);
     Operacion(double, double);
     ~Operacion();
     virtual void evaluar();

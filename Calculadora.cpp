@@ -31,3 +31,13 @@ string Calculadora::restar(double operador1, double operador2) {
 
     return resta.obtener();
 }
+
+string Calculadora::multiplicar(double operador1, double operador2) {
+    Multiplicacion multiplicacion = Multiplicacion(operador1, operador2);
+
+    multiplicacion.evaluar();
+
+    historial.push(multiplicacion);
+
+    return multiplicacion.obtener();
+}

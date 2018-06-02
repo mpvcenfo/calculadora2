@@ -6,29 +6,28 @@
 // Fecha de creación: 26-05-2018
 // Fecha de modificación: 02-06-2018
 
-#include <cmath>
 #include "Raiz.h"
+#include <cmath>
 
 Raiz::Raiz() { Operacion::Operacion(); }
 
-Raiz::Raiz(double op1) { Operacion::Operacion(op1, 0.0); }
+Raiz::Raiz(double op1) { Operacion::Operacion(op1); }
 
 Raiz::~Raiz() { Operacion::~Operacion(); }
 
 void Raiz::evaluar() {
-    if(operando1 < 0.0) {
+    if (operando1 < 0.0) {
         hayError = true;
-    }
-    else {
+        mensajeError = "Error: no existe raíz real de número negativo";
+    } else {
         resultado = sqrt(operando1);
     }
 }
 
 string Raiz::serializar() {
-    if(hayError) {
-        return "Error: no existe raíz real de número negativo";
-    }
-    else {
+    if (hayError) {
+        return mensajeError;
+    } else {
         return to_string(resultado);
     }
 }
