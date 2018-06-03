@@ -1,1 +1,3 @@
 language: c++
+script:
+ - c++ --std=c++11 -o calculadora *.cpp
