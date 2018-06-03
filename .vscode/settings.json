@@ -6,6 +6,9 @@
         "vector": "cpp",
         "sstream": "cpp",
         "iosfwd": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "__bit_reference": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp"
     }
 }

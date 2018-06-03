@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 #include "Calculadora.h"
 #include "TipoOperacion.h"
 
@@ -16,11 +17,11 @@ using namespace std;
 
 int leerOpcion();
 
-bool evaluarOpcion(int);
+bool evaluarOpcion(int&);
 
 double leerOperando();
 
-void realizarOperacion(TipoOperacion);
+void realizarOperacion(TipoOperacion&);
 
 void mostrarHistorial();
 
@@ -36,8 +37,6 @@ int main() {
         opcion = leerOpcion();
         salir = evaluarOpcion(opcion);
     }
-
-    Calculadora::terminar();
 
     return 0;
 }
@@ -56,13 +55,14 @@ int leerOpcion() {
          << "7. Calcular raíz cuadrada" << endl
          << "8. Mostrar historial de operaciones" << endl
          << "9. Borrar pantalla" << endl
+         << "0. Salir" << endl
          << "----" << endl
          << "Opción: ";
     cin >> entrada;
 
     try {
         opcion = stoi(entrada);
-    } catch (const invalid_argument &argumento) {
+    } catch (invalid_argument& argumento) {
         cout << "Entrada inválida: " << argumento.what() << endl;
     }
 
@@ -77,15 +77,16 @@ double leerOperando() {
 
     try {
         operando = stod(entrada);
-    } catch (invalid_argument &argumento) {
+    } catch (invalid_argument& argumento) {
         cout << "Operando inválido: " << argumento.what() << endl;
     }
 
     return operando;
 }
 
-bool evaluarOpcion(int opcion) {
+bool evaluarOpcion(int& opcion) {
     bool salir = false;
+    TipoOperacion tipoOp = TipoOperacion(opcion);
 
     switch (opcion) {
         case 0:
@@ -98,7 +99,7 @@ bool evaluarOpcion(int opcion) {
         case 5:
         case 6:
         case 7:
-            realizarOperacion(TipoOperacion(opcion));
+            realizarOperacion(tipoOp);
             break;
         case 8:
             mostrarHistorial();
@@ -114,7 +115,7 @@ bool evaluarOpcion(int opcion) {
     return salir;
 }
 
-void realizarOperacion(TipoOperacion tipoOp) {
+void realizarOperacion(TipoOperacion& tipoOp) {
     double op1, op2;
 
     if (tipoOp == tipoRaiz) {
@@ -136,4 +137,15 @@ void mostrarHistorial() {
          << Calculadora::obtenerHistorial() << endl;
 }
 
-void borrarPantalla() {}
+void borrarPantalla() {
+    #ifdef WINDOWS
+        system("cls");
+    #else
+        system("clear");
+    #endif
+
+    cout << flush;
+
+    Calculadora::terminar();
+    Calculadora::iniciar();
+}

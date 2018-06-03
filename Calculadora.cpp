@@ -8,19 +8,19 @@
 
 #include "Calculadora.h"
 
-vector<Operacion*>* Calculadora::historial;
+vector<Operacion*> Calculadora::historial;
 
-void Calculadora::iniciar() {
-    historial = new vector<Operacion*>();
-}
+void Calculadora::iniciar() { historial = vector<Operacion*>(); }
 
 void Calculadora::terminar() {
-    delete historial;
+    for(Operacion* op: historial) {
+        delete op;
+    }
 }
 
-string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
+string Calculadora::evaluar(TipoOperacion& tipoOp, double& op1, double& op2) {
     Operacion* op;
-    string mensajeRespuesta;
+    string respuesta;
 
     switch (tipoOp) {
         case tipoSuma:
@@ -47,19 +47,20 @@ string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
     }
 
     op->evaluar();
+    respuesta = op->serializar();
 
-    mensajeRespuesta = op->serializar();
+    historial.push_back(op);
 
-    historial->push_back(op);
-
-    return mensajeRespuesta;
+    return respuesta;
 }
 
 string Calculadora::obtenerHistorial() {
+    int i = 0;
+    vector<Operacion*>::reverse_iterator iter = historial.rbegin();
     string listadoHistorial = "";
 
-    for (Operacion* op : *historial) {
-        listadoHistorial += op->serializar() + '\n';
+    for (; i < 3 && iter != historial.rend(); iter++, i++) {
+        listadoHistorial += (*iter)->serializar();
     }
 
     return listadoHistorial;

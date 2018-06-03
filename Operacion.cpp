@@ -16,7 +16,7 @@ Operacion::Operacion() {
     mensajeError = "";
 }
 
-Operacion::Operacion(double op1) {
+Operacion::Operacion(double& op1) {
     operando1 = op1;
     operando2 = 0.0;
     resultado = 0.0;
@@ -24,7 +24,7 @@ Operacion::Operacion(double op1) {
     mensajeError = "";
 }
 
-Operacion::Operacion(double op1, double op2) {
+Operacion::Operacion(double& op1, double& op2) {
     operando1 = op1;
     operando2 = op2;
     resultado = 0.0;
