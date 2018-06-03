@@ -68,8 +68,8 @@ int leerOpcion() {
 
     try {
         opcion = stoi(entrada);
-    } catch (invalid_argument& argumento) {
-        cout << "Entrada inválida: " << argumento.what() << endl;
+    } catch (exception e) {
+        cout << "Entrada inválida: " << e.what() << endl;
     }
 
     return opcion;
@@ -83,8 +83,8 @@ double leerOperando() {
 
     try {
         operando = stod(entrada);
-    } catch (invalid_argument& argumento) {
-        cout << "Operando inválido: " << argumento.what() << endl;
+    } catch (exception e) {
+        cout << "Operando inválido: " << e.what() << endl;
     }
 
     return operando;
