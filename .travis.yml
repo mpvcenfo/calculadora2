@@ -1,3 +1,11 @@
 language: c++
 script:
- - c++ --std=c++11 -o calculadora *.cpp
+  - c++ --std=c++11 -o calculadora *.cpp
+
+deploy:
+  provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file: "calculadora"
+  skip_cleanup: true
+  on:
+    tags: true
