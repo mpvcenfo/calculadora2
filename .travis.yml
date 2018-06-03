@@ -7,3 +7,5 @@ deploy:
   api_key: "$GITHUB_TOKEN"
   file: "calculadora"
   skip_cleanup: true
+  on:
+    branch: master
