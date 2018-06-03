@@ -8,6 +8,8 @@
 
 #include "Calculadora.h"
 
+vector<Operacion> Calculadora::historial;
+
 void Calculadora::iniciar() {}
 
 void Calculadora::terminar() {}
