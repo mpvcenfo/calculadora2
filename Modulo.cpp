@@ -7,6 +7,7 @@
 // Fecha de modificación: 02-06-2018
 
 #include "Modulo.h"
+#include <sstream>
 
 void Modulo::evaluar() {
     if (operando2 == 0.0) {
@@ -18,10 +19,13 @@ void Modulo::evaluar() {
 }
 
 string Modulo::serializar() {
+    ostringstream flujo;
+
     if (hayError) {
         return mensajeError;
     } else {
-        return to_string(operando1) + " \% " + to_string(operando2) + " = " +
-               to_string(resultado);
+        flujo << operando1 << " \% " << operando2 << " = " << resultado << endl;
+
+        return flujo.str();
     }
 }

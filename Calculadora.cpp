@@ -8,48 +8,39 @@
 
 #include "Calculadora.h"
 
-vector<Operacion> Calculadora::historial;
-
-void Calculadora::iniciar() {}
-
-void Calculadora::terminar() {}
-
 string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
-    Operacion op;
+    Operacion* op;
     string mensajeRespuesta;
 
     switch (tipoOp) {
         case tipoSuma:
-            op = Suma(op1, op2);
+            op = new Suma(op1, op2);
             break;
         case tipoResta:
-            op = Resta(op1, op2);
+            op = new Resta(op1, op2);
             break;
         case tipoMultiplicacion:
-            op = Multiplicacion(op1, op2);
+            op = new Multiplicacion(op1, op2);
             break;
         case tipoDivision:
-            op = Division(op1, op2);
+            op = new Division(op1, op2);
             break;
         case tipoModulo:
-            op = Modulo(op1, op2);
+            op = new Modulo(op1, op2);
             break;
         case tipoPotencia:
-            op = Potencia(op1, op2);
+            op = new Potencia(op1, op2);
             break;
         case tipoRaiz:
-            op = Raiz(op1, op2);
-            break;
-        default:
-            op = Operacion(op1, op2);
+            op = new Raiz(op1, op2);
             break;
     }
 
-    op.evaluar();
+    op->evaluar();
 
-    mensajeRespuesta = op.serializar();
+    mensajeRespuesta = op->serializar();
 
-    historial.push_back(op);
+    // historial.push_back(op);
 
     return mensajeRespuesta;
 }
@@ -57,9 +48,9 @@ string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
 string Calculadora::obtenerHistorial() {
     string listadoHistorial = "";
 
-    for (Operacion op : historial) {
-        listadoHistorial += op.serializar() + '\n';
-    }
+    // for (Operacion* op : historial) {
+    //     listadoHistorial += op->serializar() + '\n';
+    // }
 
     return listadoHistorial;
 }

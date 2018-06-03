@@ -7,10 +7,14 @@
 // Fecha de modificación: 02-06-2018
 
 #include "Multiplicacion.h"
+#include <sstream>
 
 void Multiplicacion::evaluar() { resultado = operando1 * operando2; }
 
 string Multiplicacion::serializar() {
-    return to_string(operando1) + " * " + to_string(operando2) + " = " +
-           to_string(resultado);
+    ostringstream flujo;
+
+    flujo << operando1 << " * " << operando2 << " = " << resultado << endl;
+
+    return flujo.str();
 }

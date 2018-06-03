@@ -8,6 +8,7 @@
 
 #include "Raiz.h"
 #include <cmath>
+#include <sstream>
 
 void Raiz::evaluar() {
     if (operando1 < 0.0) {
@@ -19,10 +20,14 @@ void Raiz::evaluar() {
 }
 
 string Raiz::serializar() {
+    ostringstream flujo;
+
     if (hayError) {
         return mensajeError;
     } else {
-        return "La raíz cuadrada de " + to_string(operando1) + " es " +
-               to_string(resultado);
+        flujo << "La raíz cuadrada de " << operando1 << " es " << resultado
+              << endl;
+
+        return flujo.str();
     }
 }

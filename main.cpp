@@ -30,14 +30,10 @@ int main() {
     bool salir = false;
     int opcion;
 
-    Calculadora::iniciar();
-
     while (!salir) {
         opcion = leerOpcion();
         salir = evaluarOpcion(opcion);
     }
-
-    Calculadora::terminar();
 
     return 0;
 }
@@ -46,7 +42,7 @@ int leerOpcion() {
     string entrada;
     int opcion;
 
-    cout << "Menú de calculadora"
+    cout << "Menú de calculadora:" << endl
          << "1. Sumar" << endl
          << "2. Restar" << endl
          << "3. Multiplicar" << endl

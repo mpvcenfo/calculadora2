@@ -10,7 +10,7 @@
 #define TIPO_OPERACION_H
 
 enum TipoOperacion {
-    tipoSuma,
+    tipoSuma = 1,
     tipoResta,
     tipoMultiplicacion,
     tipoDivision,

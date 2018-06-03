@@ -7,6 +7,7 @@
 // Fecha de modificación: 02-06-2018
 
 #include "Potencia.h"
+#include <sstream>
 
 void Potencia::evaluar() {
     if (operando1 == 0.0 && operando2 == 0.0) {
@@ -18,10 +19,13 @@ void Potencia::evaluar() {
 }
 
 string Potencia::serializar() {
+    ostringstream flujo;
+
     if (hayError) {
         return mensajeError;
     } else {
-        return to_string(operando1) + " ** " + to_string(operando2) + " = " +
-               to_string(resultado);
+        flujo << operando1 << " ** " << operando2 << " = " << resultado << endl;
+
+        return flujo.str();
     }
 }
