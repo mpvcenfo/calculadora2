@@ -6,14 +6,16 @@
 // Fecha de creación: 26-05-2018
 // Fecha de modificación: 02-06-2018
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstdlib>
 #include "Calculadora.h"
 #include "TipoOperacion.h"
 
 using namespace std;
+
+void mostrarMenu();
 
 int leerOpcion();
 
@@ -34,6 +36,7 @@ int main() {
     Calculadora::iniciar();
 
     while (!salir) {
+        mostrarMenu();
         opcion = leerOpcion();
         salir = evaluarOpcion(opcion);
     }
@@ -41,10 +44,7 @@ int main() {
     return 0;
 }
 
-int leerOpcion() {
-    string entrada;
-    int opcion;
-
+void mostrarMenu() {
     cout << "Menú de calculadora:" << endl
          << "1. Sumar" << endl
          << "2. Restar" << endl
@@ -58,6 +58,12 @@ int leerOpcion() {
          << "0. Salir" << endl
          << "----" << endl
          << "Opción: ";
+}
+
+int leerOpcion() {
+    string entrada;
+    int opcion;
+
     cin >> entrada;
 
     try {
@@ -138,11 +144,11 @@ void mostrarHistorial() {
 }
 
 void borrarPantalla() {
-    #ifdef WINDOWS
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef WINDOWS
+    system("cls");
+#else
+    system("clear");
+#endif
 
     cout << flush;
 
