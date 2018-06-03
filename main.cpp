@@ -30,10 +30,14 @@ int main() {
     bool salir = false;
     int opcion;
 
+    Calculadora::iniciar();
+
     while (!salir) {
         opcion = leerOpcion();
         salir = evaluarOpcion(opcion);
     }
+
+    Calculadora::terminar();
 
     return 0;
 }

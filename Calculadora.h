@@ -24,10 +24,12 @@
 using namespace std;
 
 class Calculadora {
-   //private:
-   // static vector<Operacion*>* historial;
+   private:
+    static vector<Operacion*>* historial;
 
    public:
+    static void iniciar();
+    static void terminar();
     static string evaluar(TipoOperacion, double, double);
     static string obtenerHistorial();
 };

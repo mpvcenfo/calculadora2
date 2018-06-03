@@ -8,6 +8,16 @@
 
 #include "Calculadora.h"
 
+vector<Operacion*>* Calculadora::historial;
+
+void Calculadora::iniciar() {
+    historial = new vector<Operacion*>();
+}
+
+void Calculadora::terminar() {
+    delete historial;
+}
+
 string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
     Operacion* op;
     string mensajeRespuesta;
@@ -40,7 +50,7 @@ string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
 
     mensajeRespuesta = op->serializar();
 
-    // historial.push_back(op);
+    historial->push_back(op);
 
     return mensajeRespuesta;
 }
@@ -48,9 +58,9 @@ string Calculadora::evaluar(TipoOperacion tipoOp, double op1, double op2) {
 string Calculadora::obtenerHistorial() {
     string listadoHistorial = "";
 
-    // for (Operacion* op : historial) {
-    //     listadoHistorial += op->serializar() + '\n';
-    // }
+    for (Operacion* op : *historial) {
+        listadoHistorial += op->serializar() + '\n';
+    }
 
     return listadoHistorial;
 }
